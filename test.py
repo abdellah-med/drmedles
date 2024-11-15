@@ -8,7 +8,7 @@ import base64
 load_dotenv()
 
 # Retrieve the API key from the environment variable
-api_key = os.getenv("GROQ_API_KEY")
+api_key = os.getenv("GROQ_API_KEY") 
 
 # Initialize Groq client
 client = Groq(api_key=api_key)
@@ -16,7 +16,7 @@ client = Groq(api_key=api_key)
 
 # Streamlit App Interface
 st.set_page_config(page_title="Dr.Medles office", page_icon="🩺")
-First_messages = "Just act like a doctor, that named dr.Medles Abdellah , and respond with short naturel answers , like a real doctor "
+First_messages = "Just act like a doctor named Dr. Medles Abdellah, and respond with short, natural answers like a real doctor. Avoid interactive responses, such as show me this or that, because you cant see ...so  Be a doctor without letting him know you are an AI, and provide medical diagnoses as quickly as possible, and remember you can't see the patient like a real life because your are IA"
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
@@ -41,7 +41,7 @@ def get_base64_image(image_path):
         return base64.b64encode(image_file.read()).decode()
 
 # Path to your local image
-image_path = "/home/abdellah/Documents/LLM_medical_diagnosis/assests/pic1.jpg"  # Update this path to where your image is stored
+image_path = "/app/assests/pic1.jpg"  # Update this path to where your image is stored
 
 # Encode the image
 base64_image = get_base64_image(image_path)
@@ -112,4 +112,4 @@ if submit_button and user_input.strip():
 
     # Display the AI's response and refresh the conversation history
     st.success("Response from AI:")
-    st.write(response)
+    
