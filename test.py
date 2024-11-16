@@ -61,7 +61,7 @@ st.markdown(
         padding: 5px 0;
     }}
     .message-box {{
-        background-color: rgba(0, 0, 0, 0.7); /* Darker and more transparent */
+        background-color: rgba(0, 0, 0, 0.2); /* More transparent, darker box */
         border-radius: 10px;
         padding: 10px;
         margin-bottom: 10px;
