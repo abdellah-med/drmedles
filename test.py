@@ -35,7 +35,7 @@ def get_base64_image(image_path):
         return base64.b64encode(image_file.read()).decode()
 
 # Path to your local image
-image_path = "/app/assests/pic1.jpg"  # Update this path to where your image is stored
+image_path = "assests/pic1.jpg"  # Update this path to where your image is stored
 
 # Encode the image
 base64_image = get_base64_image(image_path)
