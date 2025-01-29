@@ -9,7 +9,7 @@ app = FastAPI()
 
 # Chemins et configuration
 model_name = "google/flan-t5-base"  # Modèle de base sur Hugging Face
-lora_path = "/home/abdellah/Documents/LLM/lora-flan-t5-base"  # Chemin local des poids LoRA
+lora_path = "/home/abdellah/Documents/LLM/lora-flan-t5-"  # Chemin local des poids LoRA
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # Charger le modèle de base depuis Hugging Face
@@ -30,6 +30,7 @@ tokenizer = AutoTokenizer.from_pretrained(model_name)
 class Query(BaseModel):
     question: str
 
+
 # Endpoint pour générer une réponse
 @app.post("/predict/")
 def predict(query: Query):
@@ -38,6 +39,7 @@ def predict(query: Query):
     outputs = model.generate(**inputs, max_length=128, num_beams=4, early_stopping=True)
     response = tokenizer.decode(outputs[0], skip_special_tokens=True)
     return {"question": query.question, "response": response}
+
 
 # Instructions pour démarrer le serveur
 # Lancez cette commande : uvicorn filename:app --reload

@@ -87,7 +87,7 @@ if submit_button and user_input.strip():
         try:
             response = requests.post(api_url, json={"question": user_input})
             response.raise_for_status()  # Raise an error for bad responses
-            assistant_response = response.json().get("response", "I couldn't understand that. Please try again.")
+            assistant_response = response.json().get("response")
         except requests.exceptions.RequestException as e:
             assistant_response = f"Error: {str(e)}"
 
